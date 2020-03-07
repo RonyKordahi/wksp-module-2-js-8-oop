@@ -8,12 +8,12 @@ What does this program do?
 const createAcc = () => {
     return { sum: 0 }
 }
-const inc = item => { item.sum = item.sum + 1 }
+const inc = item => { item.sum = item.sum + 1 } //arrow function, item is the argument
 
 let a = createAcc();
 let b = createAcc();
 
-inc(b);
+inc(b); //calling the inc function
 
 console.log(a.sum);
 console.log(b.sum);
@@ -49,9 +49,11 @@ But what is a user interface library? _more on that soon_
 
 ## What is a class?
 
-Class is yet another type.
+Class is yet another type (of variable).
 
 Wait. What other types do you know?
+
+When a class is defined it is capitalized by convention.
 
 ---
 
@@ -134,7 +136,7 @@ Every instance of a class has a property that matches the method name and refers
 
 ```js
 class Car {
-    noise = () => console.log("Vrooom");
+    noise = () => console.log("Vrooom"); //MUST be an arrow function
 }
 
 let mazda = new Car();
@@ -230,7 +232,20 @@ myCar.drive();
 // 2. How could we represent varying hunger levels based on activity?
 // 3. How about when it eats?
 class Animal {
+    constructor(name) {
+        this.name = name;
+        this.hungerLevel = 0;
+        // this.hunger = hungerLevel || "";
+        // this.hungry = hungerLevel < 5 ? "a little hungry" : "very hungry";
+        // this.satiated = ate === true ? "full" : "starving"; 
+    }
 
+    play = () => {
+        this.hunger += 20;
+    }
+    eat = () => {
+        this.hunger -= 20;
+    }
 }
 
 ```
